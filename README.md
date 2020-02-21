@@ -1,5 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Creazione progetto
+Il progetto è stato creato digitando una tantum:
+npm install -g create-react-app
+e poi digitando:
+create-react-app frontend
 
+### Docker instructions
+# Test environment with Docker
+- Per creare l'immagine Docker di dev digitare:
+$ docker build -f Dockerfile.dev -t frontend-test .
+- per eseguire il container:
+$ docker run --rm -p 3000:3000 -v /app/node_modules -v $(pwd):/app frontend-test
+- oppure si può eseguire con il docker-compose:
+$ docker-compose up --build
+
+# Production environment with Docker
+Per l'immagine di produzione utilizzare il Dockerfile e buildarlo con:
+$ docker build . -t frontend-prod
+Per eseguire l'immagine digitare:
+$ docker run --rm -p 8080:80 frontend-prod
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Available Scripts
 
 In the project directory, you can run:
