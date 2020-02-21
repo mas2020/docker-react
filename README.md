@@ -8,10 +8,18 @@ create-react-app frontend
 # Test environment with Docker
 - Per creare l'immagine Docker di dev digitare:
 $ docker build -f Dockerfile.dev -t frontend-test .
+
 - per eseguire il container:
 $ docker run --rm -p 3000:3000 -v /app/node_modules -v $(pwd):/app frontend-test
 - oppure si può eseguire con il docker-compose:
 $ docker-compose up --build
+
+- per testare il container con il bind sull'HOST:
+$ docker run -ti --rm -v /app/node_modules -v $(pwd):/app frontend-test npm run test
+- per testare il container senza il bind sull'HOST:
+$ docker run -ti --rm frontend-test npm run test
+oppure per avere l'interruzione del container alla fine dei test (non so perchè non funziona):
+$ docker run --rm frontend-test npm run test -- --coverage
 
 # Production environment with Docker
 Per l'immagine di produzione utilizzare il Dockerfile e buildarlo con:

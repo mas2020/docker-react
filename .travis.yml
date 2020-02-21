@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -f Dockerfile.dev -t caly7691/docker-react-frontend-test .
+
+script:
+  - docker run -e CI=true caly7691/docker-react-frontend-test npm run test
+  
