@@ -1,69 +1,85 @@
 # React project
+
 The project was created by typing:
+
 ```shell
 npm install -g create-react-app
 create-react-app frontend
 ```
 
 ## Docker instructions
+
 ### Test environment with Docker
+
 To create the dev Docker image type:
+
 ```shell
 docker build -f Dockerfile.dev -t frontend-test .
 ```
 
 to execute container type:
+
 ```shell
 docker run --rm -p 3000:3000 -v /app/node_modules -v $(pwd):/app frontend-test
 ```
+
 or to run with the compose:
+
 ```shell
 docker-compose up --build
 ```
 
 to test container with the HOST binding:
+
 ```shell
 docker run -ti --rm -v /app/node_modules -v $(pwd):/app frontend-test npm run test
 ```
+
 to test container without the HOST binding:
+
 ```shell
 docker run -ti --rm frontend-test npm run test
 ```
 
 ### Production environment with Docker
+
 To get the production image type:
+
 ```shell
 docker build . -t frontend-prod
 ```
+
 To execute the image type:
+
 ```shell
 docker run --rm -p 8080:80 frontend-prod
 ```
 
 ## Available Scripts
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edit.
 You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
+Launches the test runner in the interactive watch mode.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
+Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
+The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
@@ -83,27 +99,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
