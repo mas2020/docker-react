@@ -1,34 +1,47 @@
-# Creazione progetto
-Il progetto è stato creato digitando una tantum:
+# React project
+The project was created by typing:
+```shell
 npm install -g create-react-app
-e poi digitando:
 create-react-app frontend
+```
 
-### Docker instructions
-# Test environment with Docker
-- Per creare l'immagine Docker di dev digitare:
-$ docker build -f Dockerfile.dev -t frontend-test .
+## Docker instructions
+### Test environment with Docker
+To create the dev Docker image type:
+```shell
+docker build -f Dockerfile.dev -t frontend-test .
+```
 
-- per eseguire il container:
-$ docker run --rm -p 3000:3000 -v /app/node_modules -v $(pwd):/app frontend-test
-- oppure si può eseguire con il docker-compose:
-$ docker-compose up --build
+to execute container type:
+```shell
+docker run --rm -p 3000:3000 -v /app/node_modules -v $(pwd):/app frontend-test
+```
+or to run with the compose:
+```shell
+docker-compose up --build
+```
 
-- per testare il container con il bind sull'HOST:
-$ docker run -ti --rm -v /app/node_modules -v $(pwd):/app frontend-test npm run test
-- per testare il container senza il bind sull'HOST:
-$ docker run -ti --rm frontend-test npm run test
-oppure per avere l'interruzione del container alla fine dei test (non so perchè non funziona):
-$ docker run --rm frontend-test npm run test -- --coverage
+to test container with the HOST binding:
+```shell
+docker run -ti --rm -v /app/node_modules -v $(pwd):/app frontend-test npm run test
+```
+to test container without the HOST binding:
+```shell
+docker run -ti --rm frontend-test npm run test
+```
 
-# Production environment with Docker
-Per l'immagine di produzione utilizzare il Dockerfile e buildarlo con:
-$ docker build . -t frontend-prod
-Per eseguire l'immagine digitare:
-$ docker run --rm -p 8080:80 frontend-prod
+### Production environment with Docker
+To get the production image type:
+```shell
+docker build . -t frontend-prod
+```
+To execute the image type:
+```shell
+docker run --rm -p 8080:80 frontend-prod
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Available Scripts
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 In the project directory, you can run:
 
